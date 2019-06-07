@@ -13,4 +13,9 @@ const Post = sequelize.define('posts', {
     }
 })
 
+Post.create({
+    title: "Primeiro Título",
+    content: "Primeiro Conteúdo"
+})
+
 
