@@ -20,8 +20,8 @@ const User = sequelize.define('users', {
 })
 
 User.create({
-    first_name: "Primeiro Nome",
-    last_name: "Segundo Nome",
-    email: "primeiro@nome.com.br",
+    first_name: "Marcelo",
+    last_name: "Diament",
+    email: "mdiament@digitalhouse.com",
     age: 20
 })
