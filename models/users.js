@@ -18,3 +18,10 @@ const User = sequelize.define('users', {
         type: Sequelize.INTEGER
     }
 })
+
+User.create({
+    first_name: "Primeiro Nome",
+    last_name: "Segundo Nome",
+    email: "primeiro@nome.com.br",
+    age: 20
+})
