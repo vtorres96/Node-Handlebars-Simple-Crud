@@ -14,10 +14,14 @@ app.use(bodyParser.json())
 
 // Routes 
 
+// Home
 app.get("/", (req, res) => {
-    res.render("home")
+    Post.findAll().then((posts) =>{     
+        res.render("home", {posts: posts})
+    })
 })
 
+// Posts
 app.get("/cadastro", (req, res) => {
     res.render("formulario")
 })
