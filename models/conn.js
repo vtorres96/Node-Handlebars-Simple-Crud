@@ -5,7 +5,7 @@ const sequelize = new Sequelize('node_mysql', 'victor', '03v01t96m', {
     dialect: 'mysql'
 })
 
-module.exports =  {
+module.exports = {
     Sequelize: Sequelize,
     sequelize: sequelize
 }
