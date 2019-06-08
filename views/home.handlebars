@@ -1,20 +1,22 @@
 <section class="container">
-    <h1>Lista de Posts</h1>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Título</th>
-                <th scope="col">Conteúdo</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each posts}}
+        <h1>Lista de Posts</h1>
+
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>{{title}}</td>
-                    <td>{{content}}</td>
+                    <th scope="col">Título</th>
+                    <th scope="col">Conteúdo</th>
                 </tr>
-            {{/each}}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {{#each posts}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{content}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
 </section>
