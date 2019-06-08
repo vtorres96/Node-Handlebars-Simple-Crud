@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars')
 
 // Config Handlebars - Template Engine
 app.engine('handlebars', handlebars({defaultLayout: 'main'}))
-app.set('view-engine', 'handlebars')
+app.set('view engine', 'handlebars')
 
 // Connect to Database
 const Sequelize = require('sequelize')
@@ -14,12 +14,8 @@ const sequelize = new Sequelize('node_mysql', 'victor', '03v01t96m', {
 })
 
 // Routes 
-app.get("/", (req, res) => {
-    res.sendFile("index.html", { root: __dirname + "/html/" })
-})
-
-app.get("/sobre", (req, res) => {
-    res.sendFile("sobre.html", { root: __dirname + "/html/" })
+app.get("/cadastro", (req, res) => {
+    res.render("formulario")
 })
 
 // Server
