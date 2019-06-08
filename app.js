@@ -13,6 +13,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // Routes 
+
+app.get("/", (req, res) => {
+    res.render("home")
+})
+
 app.get("/cadastro", (req, res) => {
     res.render("formulario")
 })
@@ -22,7 +27,7 @@ app.post("/salvar-cadastro", (req, res) => {
         title: req.body.title,
         content: req.body.content
     }).then(() => {
-        res.send("Post criado com sucesso")
+        res.redirect("/")
     }).catch((erro) => {
         res.send("Erro ao criar o post " + erro)
     })
