@@ -1,4 +1,6 @@
-const User = sequelize.define('users', {
+const conn = require ('./conn')
+
+const User = conn.sequelize.define('users', {
     first_name: {
         type: Sequelize.STRING
     },
@@ -13,9 +15,4 @@ const User = sequelize.define('users', {
     }
 })
 
-User.create({
-    first_name: "Marcelo",
-    last_name: "Diament",
-    email: "mdiament@digitalhouse.com",
-    age: 20
-})
+module.exports = Post
