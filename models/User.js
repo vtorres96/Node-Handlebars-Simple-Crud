@@ -15,4 +15,4 @@ const User = conn.sequelize.define('users', {
     }
 })
 
-module.exports = Post
+module.exports = User
