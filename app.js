@@ -22,6 +22,8 @@ app.get("/", (req, res) => {
 })
 
 // Posts
+
+// Create
 app.get("/cadastro", (req, res) => {
     res.render("formulario")
 })
@@ -37,13 +39,38 @@ app.post("/salvar-cadastro", (req, res) => {
     })
 })
 
+// Update
+
+app.get("/alterar-post/:id", (req, res) => {
+    Post.findOne({
+        where: {'id': req.params.id}
+    }).then((post) => {
+        res.render('formulario', {post: post})
+    }).catch(erro => {
+        res.send('Post não encontrado ' + erro)
+    })
+})
+
+app.put('/alterar-post/:id', (req, res) => {
+    Post.update({
+        title: req.body.title,
+        content: req.body.content,
+        where: {'id': req.params.id}
+    }).then(() => {
+        res.send("Postagem alterada com sucesso")
+    }).catch((erro) => {
+        res.send("Erro ao alterar postagem" + erro)
+    })
+})
+
+// Delete
 app.get("/deletar/:id", (req, res) => {
     Post.destroy({
         where: {'id': req.params.id}
     }).then(() => {
         res.send("Postagem excluída com sucesso")
     }).catch((erro) => {
-        res.send("Erro ao deletar postagem")
+        res.send("Erro ao deletar postagem" + erro)
     })
 })
 
