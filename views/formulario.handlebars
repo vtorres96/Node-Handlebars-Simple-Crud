@@ -4,16 +4,17 @@
     <form action="/salvar-cadastro" method="POST">
         <div class="form-group col-6">
             <label for="title">Título</label>
-            <input type="text" id="title" name="title" class="form-control">
+            <input type="text" id="title" name="title" class="form-control" value="{{post.title}}">
         </div>
 
         <div class="form-group col-6">
             <label for="content">Conteúdo</label>
-            <input type="text" id="content" name="content" class="form-control">
+            <input type="text" id="content" name="content" class="form-control" value="{{post.content}}">
         </div>
 
         <div class="form-group col-6">
-            <button type="submit" class="btn btn-primary">Cadastrar Post</button>
+            
+            <button type="submit" class="btn btn-primary">{{#if post}}Alterar Post{{else}}Cadastrar Post{{/if}}</button>
         </div>
     </form>
     
