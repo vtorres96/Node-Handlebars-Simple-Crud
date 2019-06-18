@@ -7,7 +7,7 @@
                 <tr>
                     <th scope="col">Título</th>
                     <th scope="col">Conteúdo</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col" colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,6 +16,7 @@
                         <td>{{title}}</td>
                         <td>{{content}}</td>
                         <td><a href="/deletar/{{id}}"><button class="btn btn-danger">Apagar</button></a></td>    
+                        <td><a href="/alterar-post/{{id}}"><button class="btn btn-info">Alterar</button></a></td>
                     </tr>
                 {{/each}}
             </tbody>
