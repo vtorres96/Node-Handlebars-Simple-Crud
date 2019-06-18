@@ -76,5 +76,5 @@ app.get("/deletar/:id", (req, res) => {
 
 // Server
 app.listen(8081, () => {
-    console.log("Servidor rodando na url http://localhost:8081")
+   // console.log("Servidor rodando na url http://localhost:8081")
 })
