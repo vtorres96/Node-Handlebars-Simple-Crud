@@ -37,6 +37,16 @@ app.post("/salvar-cadastro", (req, res) => {
     })
 })
 
+app.get("/deletar/:id", (req, res) => {
+    Post.destroy({
+        where: {'id': req.params.id}
+    }).then(() => {
+        res.send("Postagem excluída com sucesso")
+    }).catch((erro) => {
+        res.send("Erro ao deletar postagem")
+    })
+})
+
 // Server
 app.listen(8081, () => {
     console.log("Servidor rodando na url http://localhost:8081")
