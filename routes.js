@@ -12,7 +12,7 @@ routes.post("/salvar-cadastro", PostController.salvarCadastroPost)
 
 // Posts - Update
 routes.get("/alterar-post/:id", PostController.alteracaoDePost)
-routes.put('/alterar-post/:id', PostController.salvarAlteracaoDePost)
+routes.post('/alterar-post/:id', PostController.salvarAlteracaoDePost)
 
 // Post - Delete
 routes.get("/deletar/:id", PostController.exclusaoDePost)
