@@ -13,8 +13,8 @@ module.exports = {
         res.render("formulario")
     },
 
-    async salvarCadastroPost(req, res){
-        Post.create({
+    async salvarCadastroPost(req, res){    
+        await Post.create({
             title: req.body.title,
             content: req.body.content
         }).then(() => {
@@ -26,22 +26,28 @@ module.exports = {
 
     // Update Post
     async alteracaoDePost(req, res){
-        Post.findOne({
-            where: {'id': req.params.id}
+        const id = req.params.id
+        await Post.findOne({
+            where: {'id': id}
         }).then((post) => {
-            res.render('formulario', {post: post})
+            if(post){
+                res.render('formulario', {post: post})
+            } else {
+                res.redirect('/')
+            }
         }).catch(erro => {
             res.send('Post não encontrado ' + erro)
         })
     },
 
     async salvarAlteracaoDePost(req, res){
-        Post.update({
+        const id = req.params.id
+        await Post.update({      
             title: req.body.title,
             content: req.body.content,
-            where: {'id': req.params.id}
-        }).then(() => {
-            res.send("Postagem alterada com sucesso")
+            where: {'id': id}
+        }).then((post) => {
+            res.redirect("/", {post: post})
         }).catch((erro) => {
             res.send("Erro ao alterar postagem" + erro)
         })
@@ -49,8 +55,9 @@ module.exports = {
 
     // Delete Post
     async exclusaoDePost(req, res){
-        Post.destroy({
-            where: {'id': req.params.id}
+        const id = req.params.id
+        await Post.destroy({
+            where: {'id': id}
         }).then(() => {
             res.send("Postagem excluída com sucesso")
         }).catch((erro) => {
