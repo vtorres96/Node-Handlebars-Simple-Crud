@@ -1,4 +1,4 @@
-const conn = require ('./conn')
+const conn = require ('../config/conn')
 
 const Post = conn.sequelize.define('posts', {
     title: {

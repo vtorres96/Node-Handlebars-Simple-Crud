@@ -1,4 +1,4 @@
-const conn = require ('./conn')
+const conn = require ('../config/conn')
 
 const User = conn.sequelize.define('users', {
     first_name: {
