@@ -3,14 +3,14 @@ const Post = require('../models/Post')
 module.exports = {
     // List Pots
     async home(req, res){
-        Post.findAll({order: [['id', 'DESC']]}).then((posts) =>{     
+        await Post.findAll({order: [['id', 'DESC']]}).then((posts) =>{     
             res.render("home", {posts: posts})
         })
     },
 
     // Create Post
     async cadastroPost(req, res){
-        res.render("formulario")
+        await res.render("formulario")
     },
 
     async salvarCadastroPost(req, res){    
